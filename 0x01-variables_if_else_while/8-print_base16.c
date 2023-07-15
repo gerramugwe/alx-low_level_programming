@@ -5,21 +5,18 @@
  *
  * Retur: 0 (success)
  */
-int main(void)
-
+#include <stdio.h>
+int main(void)	
 {
 	char c;
-
-	for (c = '0'; && c <= '9'; c++)
+       	for (c = '0'; c <= '9'; c++)
+	{
+	       	putchar(c);
+	}
+	for (c = 'a'; c <= 'f'; c++)
 	{
 		putchar(c);
 	}
-
-	for (c = 'a'; && c <= 'f'; c++)
-	{
-		putchar(c);
-	}
-
-	putchar('\n');
-	return (0);
+       	putchar('\n');
+       	return 0;
 }
