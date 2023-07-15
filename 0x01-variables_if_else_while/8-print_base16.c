@@ -5,7 +5,7 @@
  *
  * Retur: 0 (success)
  */
-#include <stdio.h>
+
 int main(void)	
 {
 	char c;
