@@ -3,13 +3,16 @@
 /**
  * main - prints the lowercase alphabets
  *
- * Return always 0 (Sucess)
+ * Return; always 0 (Sucess)
  */
 int main(void)
 {
 	char c;
 	
 	for (c = 'a'; c <= 'z'; c++)
+	{
+		if (c != 'e' && c != 'q')
+	}
 	{
 		putchar(c);
 	}
