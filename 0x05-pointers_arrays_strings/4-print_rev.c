@@ -5,20 +5,19 @@
  * @s: pointer to the input string to be printed in reverse
  */
 void print_rev(char *s)
+
 {
-	int len = 0;
+	int c = 0;
 
-	while (s[len] != 0)
+	while (s[c] != 0)
 	{
-		len++;
+		c++;
 	}
 
-	s += len -1;
-
-	while (len >= 0)
+	for (c -= 1; c >= 0; c--)
 	{
-		_putchar(s[len]);
-		len--;
+		_putchar(s[c]);
 	}
+
 	_putchar('\n');
 }
