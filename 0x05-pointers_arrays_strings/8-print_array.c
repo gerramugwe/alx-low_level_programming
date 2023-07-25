@@ -4,22 +4,21 @@
  * print_array - a function that prints n elements of an array
  * @a: array name
  * @n: is the number of elements OF the array to be printed
- * Return: a and n inputs
+ * Return: void
  */
 void print_array(int *a, int n)
 {
-	int i;
+	int j;
 
-	for (i = 0; i < (n - 1); i++)
+	for (j = 0; j < n; j++)
 	{
-		_putchar(a[i] + '0');
-		_putchar(',');
-		_putchar(' );
+		printf("%d", a[j]);
 
+		if (j != (n - 1))
+		{
+			printf(", ");
+		}
 	}
-	if (i == (n - 1))
-	{
-		_putchar(a[n - 1] + '0');
-	}
-	_putchar('\n');
+
+	printf("\n");
 }
