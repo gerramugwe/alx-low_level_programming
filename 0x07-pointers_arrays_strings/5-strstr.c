@@ -9,7 +9,6 @@
  * or NULL, if substring is not found
  */
 char *_strstr(char *haystack, char *needle)
-{char *_strstr(char *haystack, char *needle)
 {
 	int a = 0, b = 0;
 
