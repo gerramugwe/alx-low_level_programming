@@ -1,60 +1,81 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * _strlen - gets string length
- * @string: string
- * Return: length (int)
+ * make_change - finds least number of coins
+ * @n: money amount
+ * Return: number of coins
  */
 
-int _strlen(char *string)
+int make_change(int n)
 {
-	int length;
+	int coins, quarters, dimes, nickels, twocents, pennies;
 
-	length = 0;
-	while (string[length] != '\0')
+	coins = 0;
+	quarters = 0;
+	dimes = 0;
+	nickels = 0;
+	twocents = 0;
+	pennies = 0;
+
+	while (n > 0)
 	{
-		length++;
+		if (n >= 25)
+		{
+			n -= 25;
+			quarters += 1;
+		}
+		else if (n >= 10)
+		{
+			n -= 10;
+			dimes += 1;
+		}
+		else if (n >= 5)
+		{
+			n -= 5;
+			nickels += 1;
+		}
+		else if (n >= 2)
+		{
+			n -= 2;
+			twocents += 1;
+		}
+		else
+		{
+			n -= 1;
+			pennies += 1;
+		}
 	}
-	return (length);
+	coins = quarters + dimes + nickels + twocents + pennies;
+
+	return (coins);
 }
 
 /**
- * argstostr - concatenates all the arguments to a program
- * @ac: argc - number of arguments
- * @av: argv - array of arguments
- * Return: pointe to new string
+ * main - prints minimum number of coins to make change
+ * @argc: number of arguments
+ * @argv: array of arguments
+ * Return: (0)
  */
 
-char *argstostr(int ac, char **av)
+int main(int argc, char *argv[])
 {
-	int length, i, j, k;
-	char *str;
+	int coins;
 
-	if (ac == 0 || av == NULL)
-		return (NULL);
-
-	length = 0;
-	for (i = 0; i < ac; i++)
+	if (argc != 2)
 	{
-		length += _strlen(av[i]) + 1;
+		printf("Error\n");
+		return (1);
 	}
-
-	str = malloc(sizeof(char) * length + 1);
-	if (str == NULL)
-		return (NULL);
-
-	k = 0;
-	for (i = 0; i < ac; i++)
+	else if (atoi(argv[1]) < 0)
 	{
-		for (j = 0; j < _strlen(av[i]); j++)
-		{
-			str[k] = av[i][j];
-			k++;
-		}
-		str[k] = '\n';
-		k++;
+		printf("0\n");
 	}
-	str[k] = '\0';
-	return (str);
+	else
+	{
+		coins = make_change(atoi(argv[1]));
+		printf("%d\n", coins);
+	}
+	return (0);
 }
